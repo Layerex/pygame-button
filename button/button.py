@@ -6,7 +6,8 @@ import pygame as pg
 
 class Button(object):
     """A fairly straight forward button class."""
-    def __init__(self,rect,color,function,**kwargs):
+
+    def __init__(self, rect, color, function, **kwargs):
         self.rect = pg.Rect(rect)
         self.color = color
         self.function = function
@@ -17,18 +18,20 @@ class Button(object):
         self.process_kwargs(kwargs)
         self.render_text()
 
-    def process_kwargs(self,kwargs):
+    def process_kwargs(self, kwargs):
         """Various optional customization you can change by passing kwargs."""
-        settings = {"text" : None,
-                    "font" : pg.font.Font(None,16),
-                    "call_on_release" : True,
-                    "hover_color" : None,
-                    "clicked_color" : None,
-                    "font_color" : pg.Color("white"),
-                    "hover_font_color" : None,
-                    "clicked_font_color" : None,
-                    "click_sound" : None,
-                    "hover_sound" : None}
+        settings = {
+            "text": None,
+            "font": pg.font.Font(None, 16),
+            "call_on_release": True,
+            "hover_color": None,
+            "clicked_color": None,
+            "font_color": pg.Color("white"),
+            "hover_font_color": None,
+            "clicked_font_color": None,
+            "click_sound": None,
+            "hover_sound": None,
+        }
         for kwarg in kwargs:
             if kwarg in settings:
                 settings[kwarg] = kwargs[kwarg]
@@ -41,26 +44,26 @@ class Button(object):
         if self.text:
             if self.hover_font_color:
                 color = self.hover_font_color
-                self.hover_text = self.font.render(self.text,True,color)
+                self.hover_text = self.font.render(self.text, True, color)
             if self.clicked_font_color:
                 color = self.clicked_font_color
-                self.clicked_text = self.font.render(self.text,True,color)
-            self.text = self.font.render(self.text,True,self.font_color)
+                self.clicked_text = self.font.render(self.text, True, color)
+            self.text = self.font.render(self.text, True, self.font_color)
 
-    def check_event(self,event):
+    def check_event(self, event):
         """The button needs to be passed events from your program event loop."""
         if event.type == pg.MOUSEBUTTONDOWN and event.button == 1:
             self.on_click(event)
         elif event.type == pg.MOUSEBUTTONUP and event.button == 1:
             self.on_release(event)
 
-    def on_click(self,event):
+    def on_click(self, event):
         if self.rect.collidepoint(event.pos):
             self.clicked = True
             if not self.call_on_release:
                 self.function()
 
-    def on_release(self,event):
+    def on_release(self, event):
         if self.clicked and self.call_on_release:
             self.function()
         self.clicked = False
@@ -74,7 +77,7 @@ class Button(object):
         else:
             self.hovered = False
 
-    def update(self,surface):
+    def update(self, surface):
         """Update needs to be called every frame in the main loop."""
         color = self.color
         text = self.text
@@ -87,8 +90,8 @@ class Button(object):
             color = self.hover_color
             if self.hover_font_color:
                 text = self.hover_text
-        surface.fill(pg.Color("black"),self.rect)
-        surface.fill(color,self.rect.inflate(-4,-4))
+        surface.fill(pg.Color("black"), self.rect)
+        surface.fill(color, self.rect.inflate(-4, -4))
         if self.text:
             text_rect = text.get_rect(center=self.rect.center)
-            surface.blit(text,text_rect)
+            surface.blit(text, text_rect)
