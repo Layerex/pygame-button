@@ -7,7 +7,7 @@ import sys
 
 import pygame as pg
 
-from button import Button
+from pygame_button import Button
 
 os.environ["SDL_VIDEO_CENTERED"] = "1"
 pg.init()
