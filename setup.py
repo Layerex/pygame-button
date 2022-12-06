@@ -7,7 +7,6 @@ setuptools.setup(
     version=VERSION,
     py_modules=["pygame_button"],
     url="",
-    license="GPLv3",
     author="Layerex",
     author_email="layerex@dismail.de",
     description="A very simple button class for pygame",
@@ -17,7 +16,6 @@ setuptools.setup(
     install_requires=["pygame"],
     classifiers=[
         "Development Status :: 7 - Inactive",
-        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: Software Development :: Libraries :: pygame",
         "Programming Language :: Python :: 2",
