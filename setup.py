@@ -1,14 +1,11 @@
 import setuptools
 
-VERSION = "0.0.2"
-
-
 with open("README.md", "r", encoding="utf-8") as f:
     long_description = f.read()
 
 setuptools.setup(
     name="pygame_button",
-    version=VERSION,
+    version="0.0.3",
     py_modules=["pygame_button"],
     author="Layerex",
     author_email="layerex@dismail.de",
