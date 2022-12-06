@@ -2,6 +2,10 @@ import setuptools
 
 VERSION = "0.0.2"
 
+
+with open("README.md", "r", encoding="utf-8") as f:
+    long_description = f.read()
+
 setuptools.setup(
     name="pygame_button",
     version=VERSION,
@@ -9,8 +13,8 @@ setuptools.setup(
     url="",
     author="Layerex",
     author_email="layerex@dismail.de",
-    description="A very simple button class for pygame",
-    long_description=open("README.md").read(),
+    description="A very simple button class for pygame.",
+    long_description=long_description,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
     install_requires=["pygame"],
