@@ -10,12 +10,12 @@ setuptools.setup(
     name="pygame_button",
     version=VERSION,
     py_modules=["pygame_button"],
-    url="",
     author="Layerex",
     author_email="layerex@dismail.de",
     description="A very simple button class for pygame.",
     long_description=long_description,
     long_description_content_type="text/markdown",
+    url="https://github.com/Layerex/pygame_button",
     packages=setuptools.find_packages(),
     install_requires=["pygame"],
     classifiers=[
@@ -24,5 +24,5 @@ setuptools.setup(
         "Topic :: Software Development :: Libraries :: pygame",
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 3",
-    ]
+    ],
 )
